@@ -51,7 +51,7 @@ export class News extends Component {
         return (
            
             <div className="container my-3">
-                <h1>NewsDoz - Top Headlines of the day</h1>
+                <h1 className="text-center">NewsDoz - Top Headlines of the day</h1>
                 <div className="row">
                     {this.state.articles.map((element) => {
                         console.log(element.description);
