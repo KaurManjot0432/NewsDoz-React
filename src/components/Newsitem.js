@@ -7,8 +7,16 @@ export class Newsitem extends Component {
         return (
             <div my-3>
                 <div className="card">
-                <span class="position-absolute top-0 translate-middle badge rounded-pill bg-danger" style={{left: '90%', zIndex: '1'}}> {source}
-                        </span>
+                <div style={{
+                        display: 'flex',
+                        justifyContent: 'flex-end',
+                        position: 'absolute',
+                        right: '0'
+                    }
+                    }>
+
+                        <span className="badge rounded-pill bg-danger"> {source} </span>
+                    </div>
                     <img src={!imgURL?"https://cdn.insidesport.co/wp-content/uploads/2021/09/15113727/WhatsApp-Image-2021-09-15-at-11.08.38-AM.jpeg" : imgURL} className="card-img-top" alt="..."/>
                     <div className = "card-body">
                     <h5 className = "card-title">{title}</h5>
