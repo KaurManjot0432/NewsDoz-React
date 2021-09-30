@@ -15,7 +15,7 @@ const News  = (props) =>{
 
 
     const updateNews = async () => {
-        const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${this.state.page}&pagesize=${props.pageSize}`;
+        const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pagesize=${props.pageSize}`;
         setloading(true);
         let data = await fetch(url);
         let parsedData = await data.json();
@@ -31,9 +31,8 @@ const News  = (props) =>{
 
 
     const fetchMoreData = async () => {
+        const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page+1}&pagesize=${props.pageSize}`;
         setpage(page+1);
-        const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pagesize=${props.pageSize}`;
-       
         let data = await fetch(url);
         let parsedData = await data.json();
         setarticles(articles.concat(parsedData.articles));
@@ -42,7 +41,7 @@ const News  = (props) =>{
         return (
 
                 <>
-                <h1 className="text-center" style={{ margin: '35px 0px' }}>NewsDoz - Top Headlines of the day</h1>
+                <h1 className="text-center" style={{ margin: '35px 0px', marginTop : '90px'}}>NewsDoz - Top Headlines of the day</h1>
                 {loading && <Spinner/>}
                 <InfiniteScroll
                     dataLength={articles.length}
